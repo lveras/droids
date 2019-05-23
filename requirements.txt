@@ -1,2 +1,5 @@
 Django
 djangorestframework
+djangorestframework-jwt
+django-localflavor
+django-rest-auth
