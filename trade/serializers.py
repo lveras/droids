@@ -1,15 +1,16 @@
 from rest_framework import serializers
 from .models import Demanda
-from .models import Anunciante
+from django.contrib.auth.models import User
 
 
 class DemandaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Demanda
-        fields = '__all__'
+        fields = ['id', 'status', 'descricao', 'estado', 'cidade', 'cep',
+                  'endereco', 'num_endereco', 'comp_endereco']
 
 
-class AnuncianteSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Anunciante
+        model = User
         fields = '__all__'
