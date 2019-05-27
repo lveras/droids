@@ -3,4 +3,4 @@ djangorestframework==3.9.4
 djangorestframework-jwt==1.11.0
 django-rest-auth==0.9.5
 django-reset-migrations==0.3.1
-django-localflavor
+django-localflavor==2.2
