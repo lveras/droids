@@ -1,9 +1,9 @@
 version: '2'
 services:
     web:
-        build: . 
+        build: .
         image: django-sandbox:latest
-        command: python manage.py runserver 0.0.0.0:8000
+        command: sh docker-entrypoint.sh
         volumes:
             - .:/code
         ports:
