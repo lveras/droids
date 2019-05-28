@@ -1,4 +1,4 @@
-from rest_framework import generics, mixins
+from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 
 from .models import Demanda
@@ -16,7 +16,7 @@ class DemandaList(generics.ListCreateAPIView):
         return Demanda.objects.filter(anunciante=anunciante.id)
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        serializer.save(anunciante=self.request.user)
 
 
 class DemandaDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -25,8 +25,7 @@ class DemandaDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = DemandaSerializer
 
     def get_queryset(self):
-        user = self.request.user
-        return Demanda.objects.filter(user=user.id)
+        return Demanda.objects.filter(anunciante=self.request.user.id)
 
 
 class UserList(generics.ListCreateAPIView):
